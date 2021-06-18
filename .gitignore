@@ -1,0 +1,9 @@
+# Hardhat Compiler
+cache
+artifacts
+
+# npm
+node_modules
+
+# VSCode
+.vscode
