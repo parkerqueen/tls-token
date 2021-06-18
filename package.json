@@ -1,0 +1,37 @@
+{
+    "name": "tls-token",
+    "version": "1.0.0",
+    "description": "An ethereum smart contract for peer-to-peer PKI.",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/parkerqueen/tls-token.git"
+    },
+    "keywords": [
+        "ethereum",
+        "smart",
+        "contract",
+        "tls",
+        "ssl",
+        "pki"
+    ],
+    "author": "",
+    "license": "GPL-3.0-or-later",
+    "bugs": {
+        "url": "https://github.com/parkerqueen/tls-token/issues"
+    },
+    "homepage": "https://github.com/parkerqueen/tls-token#readme",
+    "devDependencies": {
+        "@nomiclabs/hardhat-ethers": "^2.0.2",
+        "@nomiclabs/hardhat-etherscan": "^2.1.2",
+        "@nomiclabs/hardhat-waffle": "^2.0.1",
+        "chai": "^4.3.4",
+        "ethereum-waffle": "^3.3.0",
+        "ethers": "^5.3.1",
+        "hardhat": "^2.3.3",
+        "hardhat-abi-exporter": "^2.2.1"
+    }
+}
