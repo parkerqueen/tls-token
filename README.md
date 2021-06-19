@@ -2,6 +2,8 @@
 
 TLSToken is a very unadorned smart contract, implementing a web-of-trust model. The underlying idea is that a user can self-publish their TLS certificates while other peers in the network can sign those certificates. An entity can then receive all the accumulated signatures of a certificate with the expecatation that they will trust at least one or two of those signatures. Web-of-trust is essentially an antagonist to the centralized chain-of-trust PKI.
 
+*This smart contract definitely does not support the X.509 standard specification for TLS certificates. TLS certificate, in our context, is just a few handpicked attributes along with an RSA public key.*
+
 ## Instructions
 * Make sure to have `node` & `npm` installed.
 * Clone this repository and run `npm install`.
@@ -16,7 +18,7 @@ TLSToken is a very unadorned smart contract, implementing a web-of-trust model. 
 ```
 npx hardhat run scripts/deploy.js --network kovan
 ```
-Running the above command will output a Token Address. Copy that and run the following:
+* Running the above command will output a Token Address. Copy that and run the following:
 ```
 npx hardhat verify --network kovan  <TOKEN_ADDRESS>
 ```
