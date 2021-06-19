@@ -12,8 +12,8 @@ TLSToken is a very unadorned smart contract, implementing a web-of-trust model. 
 * For deployment on a remote test network, see the section below.
 
 ## Deployment
-* Sign up on Alchemy and Etherscan copy the API keys.
-* Sign up for a metamask wallet and get the private key for the Kovan test network. You may use other test networks as well. You'll need some test ethers as well which you can get for free from [here](https://faucet.kovan.network/).
+* Sign up on Alchemy and Etherscan and copy the API keys.
+* Sign up for a Metamask wallet and get the private key for the Kovan test network. You may use other test networks as well. You'll need some test ethers as well which you can get for free from [here](https://faucet.kovan.network/).
 * Edit `hardhat.config.js` and input all the API keys. Uncomment any lines. Then run:
 ```
 npx hardhat run scripts/deploy.js --network kovan
