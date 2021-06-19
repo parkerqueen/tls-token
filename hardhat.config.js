@@ -10,7 +10,7 @@ const ETHERSCAN_API_KEY = 'KEY_HERE';
  * @type import('hardhat/config').HardhatUserConfig
  */
 module.exports = {
-    solidity: '0.7.3',
+    solidity: '0.8.0',
     networks: {
         kovan: {
             url: ALCHEMY_API_KEY,
