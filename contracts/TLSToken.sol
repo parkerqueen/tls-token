@@ -57,6 +57,53 @@ contract TLSToken {
         cert_registry[msg.sender] = certificate;
     }
 
+    function sign_certificate(uint256 cert_id, uint96 expiry) external {
+        require(cert_id < certificates.length, "CERTIFICATE ID INVALID");
+        require(
+            msg.sender != certificates[cert_id].cert_owner,
+            "CANT SIGN OWN CERT"
+        );
+        cert_signatures[cert_id].push(Signature(expiry, msg.sender));
+    }
+
+    function fetch_certificate(uint256 cert_id)
+        external
+        view
+        returns (
+            string memory name,
+            string memory domain_name,
+            string memory state,
+            string memory country,
+            string memory rsa_public_key,
+            uint32 rsa_key_size,
+            address cert_owner
+        )
+    {
+        require(cert_id < certificates.length, "CERTIFICATE ID INVALID");
+        Certificate storage certificate = certificates[cert_id];
+
+        cert_owner = certificate.cert_owner;
+        name = certificate.name;
+        domain_name = certificate.domain_name;
+        state = certificate.state;
+        country = certificate.country;
+        rsa_public_key = certificate.rsa_public_key;
+        rsa_key_size = certificate.rsa_key_size;
+    }
+
+    function fetch_signatures(uint256 cert_id)
+        external
+        view
+        returns (Signature[] memory signatures)
+    {
+        require(cert_id < certificates.length, "CERTIFICATE ID INVALID");
+        uint256 signatures_length = cert_signatures[cert_id].length;
+
+        signatures = new Signature[](signatures_length);
+        for (uint256 i = 0; i < signatures_length; i++)
+            signatures[i] = cert_signatures[cert_id][i];
+    }
+
     function str_empty(string memory str) private pure returns (bool) {
         return bytes(str).length == 0;
     }
