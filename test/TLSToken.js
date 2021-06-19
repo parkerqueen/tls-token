@@ -15,6 +15,7 @@ describe('TLSToken Smart Contract', function () {
         'MIGeMA0GCSqGSIb3DQEBAQUAA4GMADCBiAKBgGFdYmurUYiMmlwaePaJeN+wIMRQDLzW8y4giibP0f9IrJU2frcCzvB7nEIqAztk5JHA0RetQ0zTKquN9XXJSh3YQ30X5c1glx3maScx9qXTTqHFhKHJXX7+F/2LSUUu1waafPg4yrnF9t6EXUrBnGCVLwpEcqwM3DbTXlwBGFCDAgMBAAE=';
     const cert_rsa_key_size = 1024;
 
+    // Deploy the contract and a certificate before each test
     beforeEach(async function () {
         TLSTokenFactory = await ethers.getContractFactory('TLSToken');
         [_, addr1, addr2] = await ethers.getSigners();
@@ -30,6 +31,7 @@ describe('TLSToken Smart Contract', function () {
         );
     });
 
+    // Fetch the deployed certificate and test if all attributes are correct
     it('Should fetch a certificate from the registry', async function () {
         const certificate = await TLSToken.fetch_certificate(0);
         expect(certificate.name).to.equal(cert_name);
@@ -40,6 +42,7 @@ describe('TLSToken Smart Contract', function () {
         expect(certificate.rsa_key_size).to.equal(cert_rsa_key_size);
     });
 
+    // Sign the certificate twice and fetch the signatures and verify them
     it('Should sign a certificate already published', async function () {
         await TLSToken.connect(addr1).sign_certificate(0, 1624051419);
         await TLSToken.connect(addr2).sign_certificate(0, 1624051529);
