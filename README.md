@@ -28,3 +28,7 @@ Running this will output an etherscan URL which you can use to obtain the ABI fo
 * Use bytes instead of strings. Strings are costly.
 * Use IPFS distributed storage instead of storing the certificates/signatures directly on the network.
 * Add more functionality?
+
+## Contributors
+* [parkerqueen](https://github.com/parkerqueen)
+* [Farrukh-Ahmed-01](https://github.com/Farrukh-Ahmed-01)
